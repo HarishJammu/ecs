@@ -22,88 +22,162 @@
 }
 
 .ui-lis-sttylings li {
-    font-size: 23px;
+    font-size: 1.25rem;
     font-weight: 500;
     color: #124E66;
     padding: 20px;
 }
 
-/* Base styles for larger devices */
 .logo-container {
     margin-left: 30px;
 }
 
-/* Media Queries */
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+    background-color: #124E66;
+    /* Replace with desired background color */
+}
+
+.service-card {
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: start;
+}
+
+.service-title {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+hr {
+    border: 0.5px solid #ffffff;
+    margin-bottom: 10px;
+    width: 16rem;
+}
+
+.service-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    text-align: left;
+    height: 22vh;
+}
+
+.service-list li {
+    margin-bottom: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+
+}
+
+.service-image {
+    width: 100%;
+    object-fit: cover;
+    width: 17rem;
+    height: 14rem;
+}
+
+.icon-style {
+    height: 20px;
+    width: 20px;
+    margin-left: 5px;
+    margin-top: 10px;
+    color: #124E66;
+}
 
 /* Mobile devices */
 @media (max-width: 767px) {
     .header-containers {
         flex-direction: column;
-        height: auto; /* Adjust height for smaller screens */
+        height: auto;
+        /* Adjust height for smaller screens */
     }
 
     .log-styling {
-        height: 40px; /* Smaller logo for mobile */
-        width: 40px; 
+        height: 40px;
+        /* Smaller logo for mobile */
+        width: 40px;
     }
 
     .ui-lis-sttylings {
-        margin-right: 20px; /* Less margin for mobile */
+        margin-right: 20px;
+        /* Less margin for mobile */
     }
 
     .ui-lis-sttylings li {
-        font-size: 18px; /* Smaller font size */
-        padding: 10px; /* Less padding */
+        font-size: 18px;
+        /* Smaller font size */
+        padding: 10px;
+        /* Less padding */
     }
 }
 
 /* Tablets */
 @media (min-width: 768px) and (max-width: 1024px) {
     .header-containers {
-        height: 4.5rem; /* Adjust height for tablets */
+        height: 4.5rem;
+        /* Adjust height for tablets */
     }
 
     .log-styling {
-        height: 45px; /* Adjust logo size */
-        width: 45px; 
+        height: 45px;
+        /* Adjust logo size */
+        width: 45px;
     }
 
     .ui-lis-sttylings li {
-        font-size: 20px; /* Adjust font size */
-        padding: 15px; /* Adjust padding */
+        font-size: 20px;
+        /* Adjust font size */
+        padding: 15px;
+        /* Adjust padding */
     }
 }
 
 /* Laptops/Small Desktops */
 @media (min-width: 1025px) and (max-width: 1440px) {
     .header-containers {
-        height: 5rem; /* Adjust height for laptops */
+        height: 5rem;
+        /* Adjust height for laptops */
     }
 
     .log-styling {
-        height: 50px; /* Maintain logo size */
-        width: 50px; 
+        height: 50px;
+        /* Maintain logo size */
+        width: 50px;
     }
 
     .ui-lis-sttylings li {
-        font-size: 22px; /* Maintain font size */
-        padding: 18px; /* Maintain padding */
+        font-size: 22px;
+        /* Maintain font size */
+        padding: 18px;
+        /* Maintain padding */
     }
 }
 
 /* Desktops */
 @media (min-width: 1441px) {
     .header-containers {
-        height: 5.25rem; /* Maintain height for larger screens */
+        height: 5.25rem;
+        /* Maintain height for larger screens */
     }
 
     .log-styling {
-        height: 50px; /* Maintain logo size */
-        width: 50px; 
+        height: 50px;
+        /* Maintain logo size */
+        width: 50px;
     }
 
     .ui-lis-sttylings li {
-        font-size: 23px; /* Maintain font size */
-        padding: 20px; /* Maintain padding */
+        font-size: 23px;
+        /* Maintain font size */
+        padding: 20px;
+        /* Maintain padding */
     }
 }

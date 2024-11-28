@@ -1,0 +1,150 @@
+.carouselWrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.imageContainer {
+    width: 100%;
+    height: 88vh;
+    flex-shrink: 0;
+}
+
+.imageContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlayButtons {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    /* Adjust the height based on your needs */
+}
+
+.overlayButtons {
+    position: absolute;
+    top: 40%;
+    right: 5px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Distributes the buttons evenly with space in between */
+    height: 120px;
+    /* Adjust the height based on your needs */
+}
+
+.overlayButton {
+    color: #D3D4D9;
+    border: 1px solid #D3D4D9;
+    padding: 7px;
+    margin-bottom: 12rem;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    transform: rotate(270deg);
+    width: 130px;
+    height: 60px;
+    font-size: 20px;
+    font-weight: 400;
+    /* Rotate the button 90 degrees */
+}
+
+
+.navButtons {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navButton {
+    color: rgb(201, 12, 12);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.icons-color {
+    color: #D3D4D9
+}
+
+.navButton:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.categoryOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow: auto;
+}
+
+/* Close Button on Category Overlay */
+.closeButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: black;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.closeButton:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Grid layout for category items */
+.container {
+    width: 100%;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.gap-4 {
+    gap: 1rem;
+}
+
+.col-span-1 {
+    grid-column: span 1;
+}
+
+.rounded-lg {
+    border-radius: 8px;
+}
+
+.category-text {
+    font-size: 50px;
+    font-weight: bold;
+    color: rgba(211, 217, 212, 0.6);
+}

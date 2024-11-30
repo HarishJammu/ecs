@@ -220,6 +220,8 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import "./Intro.css"
 import { montserrat, mulish, syne, cormorant } from "../../utils/fonts";
+import Category from './Category';
+import AboutMe from './AboutME';
 const mulishFont = mulish.className;
 const HeroSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -236,111 +238,89 @@ const HeroSection = () => {
   };
 
   const handlePrev = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + images.length) % images.length
-    );
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
   };
+
   const [isClient, setIsClient] = useState(false);
+  const [isCategoryOpen, setIsCategoryOpen] = useState(false);
+  const [isAboutOpen, setIsAboutOpen] = useState(false);
+
   useEffect(() => {
     setIsClient(true);
     const interval = setInterval(handleNext, 4000);
     return () => clearInterval(interval);
   }, []);
 
-
-
   const openAbout = () => {
     alert('Open About Page');
   };
 
-  const [isCategoryOpen, setIsCategoryOpen] = useState(false);
-
-
-
   const closeCategory = () => {
     setIsCategoryOpen(false);
+    setIsAboutOpen(false)
   };
+
   return (
-    <div className="carouselWrapper">
-      <div
-        className="carousel"
-        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-      >
-        {images.map((image, index) => (
-          <div key={index} className="imageContainer">
-            <img src={image} alt={`carousel image ${index + 1}`} />
-          </div>
-        ))}
-      </div>
-      <div className="overlayButtons">
-
-        <button onClick={() => setIsCategoryOpen(true)} className={`overlayButton ${mulishFont}`}>
-          Category
-        </button>
-
-        <button onClick={openAbout} className={`overlayButton ${mulishFont}`}>
-          About
-        </button>
-      </div>
-      {isClient && isCategoryOpen && (
-        <div className="categoryOverlay">
-          <button onClick={closeCategory} className="closeButton">Close</button>
-          <div className="container">
-            <div className="grid grid-cols-4 gap-4">
-              <div className="col-span-1">
-                <Image
-                  src="https://res.cloudinary.com/dsjtmv0m8/image/upload/v1732730513/fantasy-couple-getting-married1_c0wcib.png"
-                  alt="Fashion"
-                  width={400}
-                  height={600}
-                  className="rounded-lg"
-                />
-                <p className="text-center text-lg font-bold mt-4">01 Fashion</p>
-              </div>
-              <div className="col-span-1">
-                <Image
-                  src="https://res.cloudinary.com/dsjtmv0m8/image/upload/v1732730513/fantasy-couple-getting-married1_c0wcib.png"
-                  alt="Lifestyle"
-                  width={400}
-                  height={600}
-                  className="rounded-lg"
-                />
-                <p className="text-center text-lg font-bold mt-4 category-text">02 Lifestyle</p>
-              </div>
-              <div className="col-span-1">
-                <Image
-                  src="https://res.cloudinary.com/dsjtmv0m8/image/upload/v1732730513/fantasy-couple-getting-married1_c0wcib.png"
-                  alt="Food"
-                  width={400}
-                  height={600}
-                  className="rounded-lg"
-                />
-                <p className="text-center text-lg font-bold mt-4">03 Food</p>
-              </div>
-              <div className="col-span-1">
-                <Image
-                  src="https://res.cloudinary.com/dsjtmv0m8/image/upload/v1732730513/fantasy-couple-getting-married1_c0wcib.png"
-                  alt="Product"
-                  width={400}
-                  height={600}
-                  className="rounded-lg"
-                />
-                <p className="text-center text-lg font-bold mt-4">04 Product</p>
-              </div>
+    <div>
+      <div className="carouselWrapper">
+        <div
+          className="carousel"
+          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        >
+          {images.map((image, index) => (
+            <div key={index} className="imageContainer">
+              <img src={image} alt={`carousel image ${index + 1}`} />
             </div>
-          </div>
+          ))}
         </div>
-      )}
-      <div className="navButtons">
-        <button onClick={handlePrev} className="navButton">
-          <ChevronLeftIcon className="h-7 w-7 icons-color" />
-        </button>
-        <button onClick={handleNext} className="navButton">
-          <ChevronRightIcon className="h-7 w-7 icons-color" />
-        </button>
-      </div>
 
-    </div >
-  )
-}
+        {/* Show category overlay only if it's open */}
+        {isClient && isCategoryOpen && (
+          <div className="categoryOverlay">
+            <Category />
+          </div>
+        )}
+        {isClient && isAboutOpen && (
+          <div className="categoryOverlay">
+            <AboutMe />
+          </div>
+        )}
+
+        <div className="overlayButtons">
+          {!isCategoryOpen ? (
+            <button onClick={() => setIsCategoryOpen(true)} className={`overlayButton ${mulishFont}`}>
+              Category
+            </button>
+          ) : (
+            <button onClick={closeCategory} className={`overlayButton ${mulishFont}`}>
+              Close
+            </button>
+          )}
+
+          {!isAboutOpen ? (
+            <button onClick={() => setIsAboutOpen(true)} className={`overlayButton ${mulishFont}`}>
+              About
+            </button>
+          ) : (
+            <button onClick={closeCategory} className={`overlayButton ${mulishFont}`}>
+              Close
+            </button>
+          )}
+
+
+        </div>
+
+        {/* Navigation buttons */}
+        <div className="navButtons">
+          <button onClick={handlePrev} className="navButton">
+            <ChevronLeftIcon className="h-7 w-7 icons-color" />
+          </button>
+          <button onClick={handleNext} className="navButton">
+            <ChevronRightIcon className="h-7 w-7 icons-color" />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
 export default HeroSection;

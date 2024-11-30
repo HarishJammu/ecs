@@ -2,6 +2,7 @@
     position: relative;
     width: 100%;
     overflow: hidden;
+    /* Keep it below the buttons */
 }
 
 .carousel {
@@ -21,12 +22,7 @@
     object-fit: cover;
 }
 
-.overlayButtons {
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    /* Adjust the height based on your needs */
-}
+
 
 .overlayButtons {
     position: absolute;
@@ -36,9 +32,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* Distributes the buttons evenly with space in between */
     height: 120px;
-    /* Adjust the height based on your needs */
+    z-index: 15;
 }
 
 .overlayButton {
@@ -54,7 +49,8 @@
     height: 60px;
     font-size: 20px;
     font-weight: 400;
-    /* Rotate the button 90 degrees */
+    z-index: 15;
+    /* Ensure the button stays on top */
 }
 
 
@@ -83,7 +79,7 @@
     background-color: rgba(0, 0, 0, 0.7);
 }
 
-.categoryOverlay {
+/* .categoryOverlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -96,6 +92,34 @@
     align-items: center;
     padding: 20px;
     overflow: auto;
+} */
+.categoryOverlay {
+    position: fixed;
+    top: 12%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+}
+
+.overlayButtons {
+    position: absolute;
+    top: 40%;
+    right: 5px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 120px;
+    z-index: 20;
+    /* Ensure it's on top */
 }
 
 /* Close Button on Category Overlay */
@@ -116,35 +140,149 @@
     background-color: rgba(255, 255, 255, 0.8);
 }
 
-/* Grid layout for category items */
-.container {
+.grid-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+    /* Allow wrapping for responsive design */
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+
+.image-col {
+    position: relative;
+    height: 100vh;
+    width: 25%;
+}
+
+.col img {
+    object-fit: cover;
+    /* Ensure the image covers the full area of its container */
+    width: 100%;
+    /* Ensure the image fills the full width */
+    height: 100%;
+    /* Ensure the image fills the full height */
+}
+
+.text-overlay {
+    position: absolute;
+    bottom: 16.8%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #D3D9D4;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: start;
+    padding: 10px 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
     width: 100%;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-}
-
-.grid-cols-4 {
-    grid-template-columns: repeat(4, 1fr);
-}
-
-.gap-4 {
-    gap: 1rem;
-}
-
-.col-span-1 {
-    grid-column: span 1;
-}
-
-.rounded-lg {
-    border-radius: 8px;
-}
-
-.category-text {
+.text-overlay span {
     font-size: 50px;
+    color: rgba(211, 212, 217, 0.6);
+    padding-left: 30px;
+    /* Adjust the space between number and text */
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.imageSection {
+    flex: 1;
+    position: relative;
+}
+
+.image {
+    object-fit: cover;
+}
+
+.textSection {
+    flex: 1;
+    background-color: #0f4c75;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+
+.aboutMe {
+    max-width: 400px;
+}
+
+h2 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 14px;
+}
+
+h1 {
+    font-size: 28px;
+    margin: 10px 0;
+}
+
+p {
+    margin: 15px 0;
+    line-height: 1.6;
+}
+
+.readMore {
+    text-decoration: none;
+    color: white;
     font-weight: bold;
-    color: rgba(211, 217, 212, 0.6);
+}
+
+.categories,
+.close {
+    position: absolute;
+}
+
+.categories {
+    top: 20px;
+    right: 20px;
+}
+
+.close {
+    bottom: 20px;
+    right: 20px;
+}
+
+button {
+    background: none;
+    color: white;
+    border: 1px solid white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: white;
+    color: #0f4c75;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .textSection {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
 }

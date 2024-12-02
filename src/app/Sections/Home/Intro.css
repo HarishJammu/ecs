@@ -8,6 +8,7 @@
 .carousel {
     display: flex;
     transition: transform 0.5s ease;
+    /* Smooth transition */
 }
 
 .imageContainer {
@@ -21,8 +22,6 @@
     height: 100%;
     object-fit: cover;
 }
-
-
 
 .overlayButtons {
     position: absolute;
@@ -136,9 +135,7 @@
     border-radius: 5px;
 }
 
-.closeButton:hover {
-    background-color: rgba(255, 255, 255, 0.8);
-}
+
 
 .grid-container {
     display: flex;
@@ -147,7 +144,6 @@
     padding: 0;
     margin: 0;
     flex-wrap: wrap;
-    /* Allow wrapping for responsive design */
     justify-content: flex-start;
     align-items: center;
 }
@@ -171,7 +167,7 @@
 
 .text-overlay {
     position: absolute;
-    bottom: 16.8%;
+    bottom: 16.4%;
     left: 50%;
     transform: translateX(-50%);
     color: #D3D9D4;
@@ -191,16 +187,20 @@
     /* Adjust the space between number and text */
 }
 
-.container {
+.abot-container {
     display: flex;
     height: 100vh;
-    width: 100%;
-    overflow: hidden;
+    width: 100vw;
 }
 
 .imageSection {
     flex: 1;
     position: relative;
+    height: 100%;
+    /* Adjust the height of the container */
+    width: 40%;
+    overflow: hidden;
+    /* Ensure no overflow occurs */
 }
 
 .image {
@@ -209,32 +209,39 @@
 
 .textSection {
     flex: 1;
-    background-color: #0f4c75;
+    background-color: #124E66;
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 20px;
+    padding: 60px;
 }
 
 .aboutMe {
-    max-width: 400px;
+    max-width: 600px;
+    color: #D3D9D4;
+
 }
 
-h2 {
+.aboutMe h2 {
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-size: 14px;
+    font-size: 20px;
+    font-weight: 600;
 }
 
-h1 {
-    font-size: 28px;
+.aboutMe h1 {
     margin: 10px 0;
+    font-size: 35px;
+    font-weight: bold;
 }
 
-p {
-    margin: 15px 0;
+.aboutMe p {
+    margin: 10px 0;
     line-height: 1.6;
+    font-size: 20px;
+    color: #D3D9D4;
+    font-weight: 400;
 }
 
 .readMore {
@@ -267,11 +274,6 @@ button {
     cursor: pointer;
 }
 
-button:hover {
-    background: white;
-    color: #0f4c75;
-}
-
 /* Responsiveness */
 @media (max-width: 768px) {
     .container {
@@ -285,4 +287,153 @@ button:hover {
     h1 {
         font-size: 24px;
     }
+}
+
+
+.we-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 40px;
+    margin-top: 20px;
+}
+
+.feature {
+    position: relative;
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    border-right: 2px solid #d3d2d28f;
+}
+
+.feature:last-child {
+    border-right: none;
+}
+
+.iconContainer {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.index {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 7.5rem;
+    /* Adjust size */
+    font-weight: 600;
+    color: rgba(116, 141, 146, 0.192);
+    /* Lighter color for background effect */
+    z-index: 1;
+    /* Background layer */
+    pointer-events: none;
+    /* Prevent interaction with the background text */
+}
+
+.icon {
+    position: relative;
+    z-index: 2;
+    /* Foreground layer */
+    width: 6.5rem;
+    height: 6.5rem;
+}
+
+.title {
+    font-size: 1.5625rem;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #2E3944;
+}
+
+.description {
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: #748D92;
+}
+
+.quote-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.quote {
+    width: 650px;
+    height: 107px;
+    font-size: 1.875rem;
+    color: #2E3944;
+    text-align: center;
+    font-weight: 5600;
+}
+
+.recent-work-grid {
+    display: flex;
+    justify-content: center;
+    /* Center the cards horizontally */
+    flex-wrap: wrap;
+    /* Enable wrapping for responsiveness */
+    gap: 20px;
+    /* Add space between cards */
+    padding: 20px;
+}
+
+.card {
+    flex: 1 1 calc(33.33% - 40px);
+    /* Make each card occupy one-third of the row with space for gap */
+    max-width: 370px;
+    /* Prevent images from exceeding a maximum width */
+    box-sizing: border-box;
+    /* Ensure padding is included in width calculations */
+}
+
+.imageWrapper {
+    position: relative;
+}
+
+.image {
+    width: 100%;
+    /* Ensure the image takes up the full width of the card */
+    height: auto;
+    /* Maintain the aspect ratio */
+    object-fit: cover;
+    display: block;
+    max-height: 330px;
+    /* Keep a consistent height */
+}
+
+.recent-work-index {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    font-size: 36px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.1);
+    z-index: -1;
+
+}
+
+.recent-work-content {
+    text-align: center;
+    position: relative;
+
+}
+
+
+.caption {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #2d4d5f;
+    text-align: center;
+    /* Align captions in the center */
+}
+
+.recent-work-Container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

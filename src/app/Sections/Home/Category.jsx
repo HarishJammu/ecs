@@ -41,9 +41,8 @@ export default function Category() {
                     width={100}
                     height={100}
                 />
-                <div className="text-overlay">
-                    <p ><span className={`${mulishFont}`}>03</span> Food</p>
-                </div>
+                <p className="text-overlay"><span className={`${mulishFont}`}>03</span> Food</p>
+
             </div>
 
             {/* Product Section */}
@@ -54,7 +53,6 @@ export default function Category() {
                     layout="responsive"
                     width={100}
                     height={100}
-                    style={{ paddingRight: "30px" }}
                 />
                 <p className="text-overlay"><span className={`${mulishFont}`}>04</span> Product</p>
             </div>

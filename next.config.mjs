@@ -2,7 +2,9 @@
 const nextConfig = {
     images: {
         domains: ['res.cloudinary.com'],
-        
+    },
+    experimental: {
+        turbo: false, // Disable Turbopack
     },
 };
 

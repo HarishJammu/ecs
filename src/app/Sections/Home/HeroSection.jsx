@@ -1,219 +1,4 @@
-// 'use client';
 
-// import React, { useState, useRef } from 'react';
-// import { Swiper, SwiperSlide } from 'swiper/react';
-// import { Navigation, Pagination } from 'swiper/modules'; // Import modules from the updated location
-// import 'swiper/css';
-// import 'swiper/css/navigation';
-// import 'swiper/css/pagination';
-
-// export default function HeroSection() {
-//   const swiperRef = useRef(null); // Create a reference for the Swiper instance
-//   const images = [
-//     'https://res.cloudinary.com/dsjtmv0m8/image/upload/v1732730513/fantasy-couple-getting-married1_c0wcib.png',
-//     'https://res.cloudinary.com/dsjtmv0m8/image/upload/v1732730512/fantasy-couple-getting-married2_jv1fqi.png',
-//     'https://res.cloudinary.com/dsjtmv0m8/image/upload/v1732730505/fantasy-couple-getting-married_eccnfm.png',
-//     'https://res.cloudinary.com/dsjtmv0m8/image/upload/v1732730501/fantasy-couple-getting-married3_hld2v0.png',
-//     'https://res.cloudinary.com/dsjtmv0m8/image/upload/v1732730500/fantasy-couple-getting-married4_bmdzcy.png',
-//   ];
-
-//   const [showCategory, setShowCategory] = useState(false);
-//   const [showAbout, setShowAbout] = useState(false);
-
-//   return (
-//     <div className="carousel-container">
-//       {/* Swiper Carousel */}
-//       {/* <Swiper
-//         loop={true}
-//         modules={[Navigation, Pagination]} // Add Autoplay here
-//         navigation={{
-//           nextEl: '.next-button',
-//           prevEl: '.prev-button',
-//         }}
-//         pagination={{ clickable: true }}
-//         autoplay={{ delay: 4000 }}
-//         spaceBetween={0}
-//         slidesPerView={1}
-//         speed={800}
-//         className="custom-swiper"
-//       >
-//         {images.map((img, index) => (
-//           <SwiperSlide key={index}>
-//             <div className="carousel-slide">
-//               <img src={img} alt={`Slide ${index + 1}`} className="carousel-image" />
-//             </div>
-//           </SwiperSlide>
-//         ))}
-//       </Swiper> */}
-
-//       {/* Custom Navigation Buttons */}
-//       <div className="custom-navigation">
-//         <button className="prev-button">
-//           <ChevronLeftIcon className="navigation-icon" />
-//         </button>
-//         <button className="next-button">
-//           <ChevronRightIcon className="navigation-icon" />
-//         </button>
-//       </div>
-
-//       {/* Buttons */}
-//       <div className="fixed-buttons">
-//         <button className="button" onClick={() => setShowCategory(true)}>
-//           Category
-//         </button>
-//         <button className="button" onClick={() => setShowAbout(true)}>
-//           About
-//         </button>
-//       </div>
-
-//       {/* Category Overlay */}
-//       {showCategory && (
-//         <div className="overlay">
-//           <div className="overlay-content">
-//             <button className="close-button" onClick={() => setShowCategory(false)}>
-//               Close
-//             </button>
-//             <h2>Category Page</h2>
-//             <p>Content about categories goes here...</p>
-//           </div>
-//         </div>
-//       )}
-
-//       {/* About Overlay */}
-//       {showAbout && (
-//         <div className="overlay">
-//           <div className="overlay-content">
-//             <button className="close-button" onClick={() => setShowAbout(false)}>
-//               Close
-//             </button>
-//             <h2>About Page</h2>
-//             <p>Content about "About" goes here...</p>
-//           </div>
-//         </div>
-//       )}
-
-//       <style jsx>{`
-//         .carousel-container {
-//           position: relative;
-//           width: 100%;
-//           height: 90vh;
-//         }
-
-//         .carousel-slide {
-//           display: flex;
-//           justify-content: center;
-//           align-items: center;
-//           height: 100%;
-//         }
-
-//         .carousel-image {
-//           width: 100%;
-//           height: 100%;
-//           object-fit: cover;
-//         }
-
-//         .swiper-pagination-bullets {
-//           bottom: 10px;
-//         }
-
-//         /* Custom Navigation Styles */
-//         .custom-navigation {
-//           position: absolute;
-//           bottom: 30px;
-//           left: 50%;
-//           transform: translateX(-50%);
-//           display: flex;
-//           justify-content: space-between;
-//           flex-direction:row
-//           width: 100px;
-//           z-index:2
-//         }
-
-//         .prev-button,
-//         .next-button {
-//           border: none;
-//           padding: 10px;
-//           border-radius: 50%;
-//           cursor: pointer;
-//           transition: background-color 0.3s;
-//         }
-
-//         .prev-button:hover,
-//         .next-button:hover {
-//           background-color: rgba(0, 0, 0, 0.7);
-//         }
-
-//         .navigation-icon {
-//           color: white;
-//           width: 50px;
-//           height: 50px;
-//         }
-
-//         .indexing-buttons {
-//           position: absolute;
-//           top: 50%;
-//           right: 20px;
-//           display: flex;
-//           flex-direction: column;
-//           z-index: 1;
-//         }
-//         .fixed-buttons {
-//           position: absolute;
-//           top: 50%;
-//           right: 20px;
-//           display: flex;
-//           flex-direction: column;
-//           z-index: 1;
-//         }
-
-//         .button {
-//           padding: 10px 15px;
-//           background-color: rgba(0, 0, 0, 0.7);
-//           color: white;
-//           border: none;
-//           cursor: pointer;
-//           transition: background 0.3s;
-//         }
-
-//         .button:hover {
-//           background-color: rgba(0, 0, 0, 0.9);
-//         }
-
-//         /* Overlay Styles */
-//         .overlay {
-//           position: fixed;
-//           top: 0;
-//           left: 0;
-//           width: 100%;
-//           height: 100%;
-//           background: rgba(0, 0, 0, 0.7);
-//           display: flex;
-//           align-items: center;
-//           justify-content: center;
-//           z-index: 3;
-//         }
-
-//         .overlay-content {
-//           background: white;
-//           padding: 20px;
-//           width: 80%;
-//           max-width: 500px;
-//           position: relative;
-//         }
-
-//         .close-button {
-//           position: absolute;
-//           top: 10px;
-//           right: 10px;
-//           background: red;
-//           color: white;
-//           border: none;
-//           cursor: pointer;
-//         }
-//       `}</style>
-//     </div>
-//   );
-// }
 'use client';
 import { useState, useEffect } from 'react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
@@ -222,7 +7,9 @@ import "./Intro.css"
 import { montserrat, mulish, syne, cormorant } from "../../utils/fonts";
 import Category from './Category';
 import AboutMe from './AboutME';
+import RecentWorks from './RecentWorks';
 const mulishFont = mulish.className;
+const cormorantFont = cormorant.className;
 const HeroSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const images = [
@@ -251,14 +38,52 @@ const HeroSection = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const openAbout = () => {
-    alert('Open About Page');
-  };
 
-  const closeCategory = () => {
-    setIsCategoryOpen(false);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        (prevIndex + 1) % images.length // Reset to 0 after last index
+      );
+    }, 3000); // Adjust interval time (e.g., 3000ms = 3 seconds)
+
+    return () => clearInterval(interval); // Clear interval on unmount
+  }, [images.length]);
+
+  const OpenandcloseCategory = () => {
+    setIsCategoryOpen(!isCategoryOpen);
     setIsAboutOpen(false)
   };
+  const OpenandcloseAbout = () => {
+    setIsAboutOpen(!isAboutOpen)
+    setIsCategoryOpen(false);
+
+  };
+  const features = [
+    {
+      id: "01",
+      title: "Made with love",
+      description: "Two people, true emotions, the big decision & the vows of eternal love forever!",
+      icon: "https://res.cloudinary.com/dsjtmv0m8/image/upload/v1733050525/candles_1_pmvwsa.png", // Replace with actual icons
+    },
+    {
+      id: "02",
+      title: "The Wedding Bliss",
+      description: "An excellent customer service return investment makes you enjoy the event full-on!",
+      icon: "https://res.cloudinary.com/dsjtmv0m8/image/upload/v1733050526/couple_1_ptsz0f.png", // Replace with actual icons
+    },
+    {
+      id: "03",
+      title: "Just The Two Of Us",
+      description: "We vendor the best musical band for the wedding event. Blissful music to celebrate!",
+      icon: "https://res.cloudinary.com/dsjtmv0m8/image/upload/v1733050526/wedding_1_ym18pa.png", // Replace with actual icons
+    },
+    {
+      id: "04",
+      title: "Made with love",
+      description: "Our management is the best to make your big day memorable in every aspect of the event!",
+      icon: "https://res.cloudinary.com/dsjtmv0m8/image/upload/v1733050526/wedding_iwkqvu.png", // Replace with actual icons
+    },
+  ];
 
   return (
     <div>
@@ -288,21 +113,21 @@ const HeroSection = () => {
 
         <div className="overlayButtons">
           {!isCategoryOpen ? (
-            <button onClick={() => setIsCategoryOpen(true)} className={`overlayButton ${mulishFont}`}>
+            <button onClick={OpenandcloseCategory} className={`overlayButton ${mulishFont}`}>
               Category
             </button>
           ) : (
-            <button onClick={closeCategory} className={`overlayButton ${mulishFont}`}>
+            <button onClick={OpenandcloseCategory} className={`overlayButton ${mulishFont}`}>
               Close
             </button>
           )}
 
           {!isAboutOpen ? (
-            <button onClick={() => setIsAboutOpen(true)} className={`overlayButton ${mulishFont}`}>
+            <button onClick={OpenandcloseAbout} className={`overlayButton ${mulishFont}`}>
               About
             </button>
           ) : (
-            <button onClick={closeCategory} className={`overlayButton ${mulishFont}`}>
+            <button onClick={OpenandcloseAbout} className={`overlayButton ${mulishFont}`}>
               Close
             </button>
           )}
@@ -320,6 +145,29 @@ const HeroSection = () => {
           </button>
         </div>
       </div>
+
+      <div className="we-container">
+        {features.map((feature, index) => (
+          <div key={index} className="feature">
+            <div className="iconContainer">
+              <span className={`index ${mulishFont}`}>{feature.id}</span>
+              <img src={feature.icon} alt={`${feature.title} icon`} className="icon" />
+            </div>
+            <div className="recent-work-content">
+              <h3 className={`title ${mulishFont}`}>{feature.title}</h3>
+              <p className={`description ${mulishFont}`} >{feature.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="quote-container">
+        <h3 className={`quote ${cormorantFont}`}><i><span style={{ color: "#f50707" }}
+        >“</span>The best images are the ones that can maintain their strength
+          and have an impact for years, regardless of
+          how many times they are viewed.<span style={{ color: "#f50707" }}
+          >”</span></i></h3>
+      </div>
+      <RecentWorks />
     </div>
   );
 };

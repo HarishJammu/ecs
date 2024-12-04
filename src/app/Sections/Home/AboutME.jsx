@@ -1,9 +1,6 @@
 import Image from 'next/image';
 import "./Intro.css"
-import { montserrat, mulish, syne, cormorant } from "../../utils/fonts";
-const mulishFont = mulish.className;
-const monsterFont = montserrat.className;
-
+import { mulishFont } from '@/app/fonts/fonts';
 export default function AboutMe() {
     return (
         <div className="abot-container">

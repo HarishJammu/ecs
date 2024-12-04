@@ -322,34 +322,28 @@ button {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 7.5rem;
-    /* Adjust size */
+    font-size: 6.5rem;
     font-weight: 600;
     color: rgba(116, 141, 146, 0.192);
-    /* Lighter color for background effect */
     z-index: 1;
-    /* Background layer */
     pointer-events: none;
-    /* Prevent interaction with the background text */
 }
 
 .icon {
     position: relative;
     z-index: 2;
-    /* Foreground layer */
     width: 6.5rem;
     height: 6.5rem;
 }
 
 .title {
-    font-size: 1.5625rem;
+    font-size: 1.2625rem;
     font-weight: bold;
-    margin: 10px 0;
     color: #2E3944;
 }
 
 .description {
-    font-size: 1.15rem;
+    font-size: 1rem;
     font-weight: 400;
     color: #748D92;
 }
@@ -364,76 +358,215 @@ button {
 .quote {
     width: 650px;
     height: 107px;
-    font-size: 1.875rem;
+    font-size: 1.675rem;
     color: #2E3944;
     text-align: center;
-    font-weight: 5600;
+    font-weight: 500;
 }
 
 .recent-work-grid {
     display: flex;
     justify-content: center;
-    /* Center the cards horizontally */
     flex-wrap: wrap;
-    /* Enable wrapping for responsiveness */
-    gap: 20px;
-    /* Add space between cards */
-    padding: 20px;
+    gap: 40px;
 }
 
 .card {
     flex: 1 1 calc(33.33% - 40px);
-    /* Make each card occupy one-third of the row with space for gap */
     max-width: 370px;
-    /* Prevent images from exceeding a maximum width */
     box-sizing: border-box;
-    /* Ensure padding is included in width calculations */
 }
 
 .imageWrapper {
     position: relative;
 }
 
-.image {
-    width: 100%;
-    /* Ensure the image takes up the full width of the card */
-    height: auto;
-    /* Maintain the aspect ratio */
+.recent-image {
+    width: 380px;
     object-fit: cover;
     display: block;
-    max-height: 330px;
-    /* Keep a consistent height */
-}
-
-.recent-work-index {
-    position: absolute;
-    top: 10%;
-    left: 10%;
-    font-size: 36px;
-    font-weight: bold;
-    color: rgba(0, 0, 0, 0.1);
-    z-index: -1;
-
-}
-
-.recent-work-content {
-    text-align: center;
-    position: relative;
-
-}
-
-
-.caption {
-    margin-top: 10px;
-    font-size: 16px;
-    font-weight: 500;
-    color: #2d4d5f;
-    text-align: center;
-    /* Align captions in the center */
+    max-height: 376px;
 }
 
 .recent-work-Container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.recent-work-index {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    color: rgba(116, 141, 146, 0.2);
+    z-index: -1;
+    font-size: 5.25rem;
+}
+
+.caption {
+    padding-top: 10px;
+    font-size: 28px;
+    font-weight: 600;
+    color: #2E3944;
+    z-index: 1;
+    position: relative;
+}
+
+.browse-title {
+    margin-top: 10px;
+    font-size: 30px;
+    font-weight: 500;
+    color: #124E66;
+    padding-top: 40px;
+}
+
+.view-all-recent-works {
+    width: auto;
+    height: auto;
+    font-size: 28px;
+    font-weight: 400;
+    color: #124E66;
+    border: 3px solid #124E66;
+    background: transparent;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 15px 5px 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.about-ourservice-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+/* Card styles */
+.about-ourservice-card-backgorund {
+    width: 230px;
+    height: 320px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    margin: 50px;
+}
+
+.about-ourservice-card-foreground {
+    width: 250px;
+    height: 350px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    margin-right: 40px;
+}
+
+/* For Background Card */
+.cardBackground-left {
+    position: relative;
+    background: linear-gradient(to right,
+            rgba(18, 78, 102, 1) 0%,
+            rgba(255, 255, 255, 1) 82%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 250px;
+    padding: 5px;
+
+}
+
+.cardBackground-right {
+    position: relative;
+    background: linear-gradient(to left,
+            rgba(18, 78, 102, 1) 0%,
+            rgba(255, 255, 255, 1) 82%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 250px;
+    padding: 5px;
+}
+
+/* Padding wrapper inside the card */
+.card-content-wrapper {
+    padding: 10px;
+    /* Adjust padding as needed */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 250px;
+
+}
+
+/* Image container to hold the image */
+.image-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 250px;
+    /* Adjust as per card */
+}
+
+/* Image styles */
+.background-card,
+.foreground-card {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensures image fills the area proportionally */
+    border-radius: 10px;
+    /* Matches container's rounded corners */
+}
+
+/* Foreground Card */
+.cardForeground {
+    background-color: #74b9ff;
+    position: absolute;
+    top: 15%;
+    z-index: 10;
+    transform: translateX(-50%);
+    left: 50%;
+    background: linear-gradient(to bottom,
+            rgba(18, 78, 102, 1) 0%,
+            /* Solid first color */
+            rgba(18, 78, 102, 0.6) 25%,
+            /* Gradual fade to semi-transparent */
+            rgba(18, 78, 102, 0.4) 30%,
+            /* Lighter fade before transition */
+            rgba(255, 255, 255, 1) 35%,
+            /* Transitioning to white */
+            rgba(255, 255, 255, 1) 100%
+            /* Solid white */
+        );
+
+    padding: 5px;
+    border-radius: 250px;
 }

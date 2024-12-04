@@ -4,12 +4,12 @@ import { useState, useEffect } from 'react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import "./Intro.css"
-import { montserrat, mulish, syne, cormorant } from "../../utils/fonts";
 import Category from './Category';
 import AboutMe from './AboutME';
 import RecentWorks from './RecentWorks';
-const mulishFont = mulish.className;
-const cormorantFont = cormorant.className;
+import { cormorantFont, mulishFont } from '@/app/fonts/fonts';
+import AboutSection from './AboutSection';
+
 const HeroSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const images = [
@@ -168,6 +168,7 @@ const HeroSection = () => {
           >”</span></i></h3>
       </div>
       <RecentWorks />
+      <AboutSection/>
     </div>
   );
 };

@@ -5,7 +5,9 @@ const nextConfig = {
     },
     experimental: {
         turbo: false, // Disable Turbopack
+        optimizeFonts: true,
     },
+
 };
 
 export default nextConfig;

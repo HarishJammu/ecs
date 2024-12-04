@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import "./Intro.css"
-import { montserrat, mulish, syne, cormorant } from "../../utils/fonts";
-const mulishFont = mulish.className;
+import { mulishFont } from '@/app/fonts/fonts';
 
 export default function Category() {
     return (

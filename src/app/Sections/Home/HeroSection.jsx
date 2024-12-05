@@ -9,6 +9,7 @@ import AboutMe from './AboutME';
 import RecentWorks from './RecentWorks';
 import { cormorantFont, mulishFont } from '@/app/fonts/fonts';
 import AboutSection from './AboutSection';
+import ServicesSection from './ServicesSection';
 
 const HeroSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -168,7 +169,8 @@ const HeroSection = () => {
           >”</span></i></h3>
       </div>
       <RecentWorks />
-      <AboutSection/>
+      <AboutSection />
+      <ServicesSection />
     </div>
   );
 };

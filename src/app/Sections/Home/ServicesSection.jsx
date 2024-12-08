@@ -49,7 +49,7 @@ export default function ServicesSection() {
                 <img src={service.icon} className="card-icon" />
                 <h2 className={`card-title ${cormorantFont}`}>{service.title}</h2>
                 <p className={`card-description ${cormorantFont}`} >{service.description}</p>
-                <a href={service.link} className="service-link">
+                <a href={service.link} className={`service-link ${cormorantFont}`}>
                   Read More
                 </a>
 
